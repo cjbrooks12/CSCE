@@ -1,0 +1,15 @@
+q:Who is the creator of the C++ programming language?;c:4;a:Linus Torvalds;Alan Turing;Teresa Leyk;Bjarne Stroustrup;Bill Gates;e;
+q:When should you prefer a for loop to a while loop?;c:2;a:When reading in data from a file;When you are running the loop a specific number of times;When You run the loop until a condition is reached;e;
+q:Which of these programming languages was based off C++?;c:1;a:Java; Fortran; Python; Javascript;e;
+q:What was the original name of C++?;c:3;a:C++;Objective-C;C with Classes; C#; B;e;
+q:If a = 3 and b = 2, which of the following statements is not true?;c:3;a:a != b;a+b = b*(3/2); a-b < 0; (a*b)-a = a;e;
+q:Which of the following describes the C++ programming language?;c:1;a:High-level language;Assembly Language;Low-level language;e;
+q:Which of the following is a NOT a real sorting algorithm in C++?;c:4;a:Heap sort;Bubble sort;Insertion sort;Total sort;e;
+q:What is the purpose of the '#' character?;c:3;a:It declares a number;It is the start of a comment; It invokes the preprocessor during compilation; It is boolean NOT;e;
+q:What of the following is NOT a purpose of indentation?;c:4;a:Keep code tidy;Show a visual heirarchy among blocks of code;Aids programmers in reading code;Replaces curly braces;e;
+q:Which of the following is a valid object name in C++?;c:1;a:my_object;2013_fall;another object;void;e;
+q:Which of the following is NOT a reserved wordin C++?;c:5;a:bool;new;namespace;throw;object;e;
+q:Which of the following is a valid return type for a function?;c:3;a:true;vector;vector<string>;empty;e;
+q:TRUE or FALSE: C++ was the first object-oriented programming language.;c:2;a:true;false;e;
+q:TRUE or FALSE: C++ is one of the most popular programming languages.;c:1;a:true;false;e;
+q:TRUE or FALSE: The creator of C++ is a faculty member at Texas A&M University.;c:1;a:true;false;e;
