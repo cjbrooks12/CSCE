@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Paint", "Paint\Paint.vcxproj", "{DC283AF5-6F84-4347-9294-931A233A8EF9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Polygon", "Polygon\Polygon.vcxproj", "{358C8023-F1E4-41E3-9596-B81316A7D9A4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fractal", "Fractal\Fractal.vcxproj", "{C7EDE558-BFF5-4144-A448-B8AF8CE4EBE3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rasterization", "Rasterization\Rasterization.vcxproj", "{6A34D358-3A7F-4ADB-BC78-5E68CB0D6AF4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RayTracer", "RayTracer\RayTracer.vcxproj", "{19D84ACC-0BD2-4D56-BB59-8104B51E8FF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC283AF5-6F84-4347-9294-931A233A8EF9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DC283AF5-6F84-4347-9294-931A233A8EF9}.Debug|Win32.Build.0 = Debug|Win32
+		{DC283AF5-6F84-4347-9294-931A233A8EF9}.Release|Win32.ActiveCfg = Release|Win32
+		{DC283AF5-6F84-4347-9294-931A233A8EF9}.Release|Win32.Build.0 = Release|Win32
+		{358C8023-F1E4-41E3-9596-B81316A7D9A4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{358C8023-F1E4-41E3-9596-B81316A7D9A4}.Debug|Win32.Build.0 = Debug|Win32
+		{358C8023-F1E4-41E3-9596-B81316A7D9A4}.Release|Win32.ActiveCfg = Release|Win32
+		{358C8023-F1E4-41E3-9596-B81316A7D9A4}.Release|Win32.Build.0 = Release|Win32
+		{C7EDE558-BFF5-4144-A448-B8AF8CE4EBE3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C7EDE558-BFF5-4144-A448-B8AF8CE4EBE3}.Debug|Win32.Build.0 = Debug|Win32
+		{C7EDE558-BFF5-4144-A448-B8AF8CE4EBE3}.Release|Win32.ActiveCfg = Release|Win32
+		{C7EDE558-BFF5-4144-A448-B8AF8CE4EBE3}.Release|Win32.Build.0 = Release|Win32
+		{6A34D358-3A7F-4ADB-BC78-5E68CB0D6AF4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6A34D358-3A7F-4ADB-BC78-5E68CB0D6AF4}.Debug|Win32.Build.0 = Debug|Win32
+		{6A34D358-3A7F-4ADB-BC78-5E68CB0D6AF4}.Release|Win32.ActiveCfg = Release|Win32
+		{6A34D358-3A7F-4ADB-BC78-5E68CB0D6AF4}.Release|Win32.Build.0 = Release|Win32
+		{19D84ACC-0BD2-4D56-BB59-8104B51E8FF8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{19D84ACC-0BD2-4D56-BB59-8104B51E8FF8}.Debug|Win32.Build.0 = Debug|Win32
+		{19D84ACC-0BD2-4D56-BB59-8104B51E8FF8}.Release|Win32.ActiveCfg = Release|Win32
+		{19D84ACC-0BD2-4D56-BB59-8104B51E8FF8}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
