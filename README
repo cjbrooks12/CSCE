@@ -1,1 +1,1 @@
-This repo contains all the source code for all programming assignments in all CSCE classes at Texas A&M. Some projects contain a makefile, others are compiled and run using the standard compile and run commands for Java or C++(using g++ compiler)
+This repo contains all the source code for all programming assignments in all CSCE classes at Texas A&M. Some projects contain a makefile, others are compiled and run using the standard compile and run commands for Java or C++(using g++ compiler), some are Visual Studio projects, some are Android Studio projects
