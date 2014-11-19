@@ -33,7 +33,7 @@ public:
 		float R = r;
 
 		float a = V.dot(V);
-		float b = (V * 2).dot(P-C);
+		float b = (V * 2).dot(P - C);
 		float c = (P - C).dot(P - C) - r*r;
 
 		float discriminant = (b * b) - (4*a*c); //b^2 - 4ac
@@ -49,27 +49,23 @@ public:
 			float t1 = (-b + sqrt(discriminant)) / (2.0f*a);
 			float t2 = (-b - sqrt(discriminant)) / (2.0f*a);
 
-			//std::cout << t1 << " " << t2 << " :: ";
-
 			Intersection i;
 			if (t1 >= 0 && t2 >= 0) {
-				float t = (t1 <= t2) ? t1 : t2;
-
-				i.intersection = (P + (V*t));
-				i.normal = (P + (V*t)) - C;
-				i.t = t;
+				i.t = (t1 <= t2) ? t1 : t2;
 			}
 			else if (t1 >= 0 && t2 < 0) {
-				float t = t1;
-				i.intersection = (P + (V*t));
-				i.normal = (P + (V*t)) - C;
-				i.t = t;
+				i.t = t1;
 			}
 			else if (t1 < 0 && t2 > 0) {
-				float t = t2;
-				i.intersection = (P + (V*t));
-				i.normal = (P + (V*t)) - C;
-				i.t = t;
+				i.t = t2;
+			}
+			else {
+				i.t = -1;
+			}
+
+			if (i.t > 0) {
+				i.intersection = (P + (V*i.t));
+				i.normal = ((P + (V*i.t)) - C).normalize();
 			}
 			else {
 				i.intersection = Point(0, 0, 0);

@@ -19,6 +19,7 @@ public:
 		case 0: return r;
 		case 1: return g;
 		case 2: return b;
+		default: float a = -1.0; return a;
 		}
 	};
 	Color& operator=(float c[3]) {

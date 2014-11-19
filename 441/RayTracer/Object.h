@@ -31,6 +31,8 @@ public:
 	int n;    //specular exponenet
 	float G_e[3]; //reflection coefficient
 
+	bool isReflective;
+
 	Object() {
 		K_a[0] = 0.2;
 		K_a[1] = 0.2;
@@ -45,6 +47,8 @@ public:
 		K_s[2] = 0.5;
 
 		n = 5;
+
+		isReflective = false;
 	}
 	~Object() {}
 

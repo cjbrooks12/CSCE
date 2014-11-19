@@ -25,7 +25,7 @@ public:
 		//final equation to solve
 		//t=N*(O-P)/N*V
 
-		//ray (should be calculated using screen coordinates
+		//ray should be calculated using screen coordinates
 		Vec V = v;
 		Point P = p;
 
@@ -47,7 +47,7 @@ public:
 		else {
 			Intersection i;
 			i.intersection = P + V*t;
-			i.normal = N;
+			i.normal = N.normalize();
 			i.t = t;
 			return i;
 		}

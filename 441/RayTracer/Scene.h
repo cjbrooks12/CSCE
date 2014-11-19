@@ -10,7 +10,7 @@ class Scene {
 private:
 public:
 	std::vector<Object*> objects;
-	std::vector<Light> lightSources;
+	std::vector<Light> lights;
 
 	int INF = 100000;
 
@@ -23,73 +23,85 @@ public:
 	}
 	~Scene() { }
 
-	Color calculate_light(Intersection& i, Object& object, std::vector<Light>& light, Point& camera) {
-		Vec E = (camera - i.intersection).normalize();
-		Vec N = i.normal;
+	Color calculate_light(Intersection& ptOnSurface, Object& object, Point& camera, int reflection_count) {
+		Vec L; //direction to light
+		Vec R; //direction of reflected vector
+		Vec E = (camera - ptOnSurface.intersection).normalize(); //direction to viewer
+		Vec N = ptOnSurface.normal; //normal to surface
 		
-		float amb[3] = { 0.0, 0.0, 0.0 };
-		float diff[3] = { 0.0, 0.0, 0.0 };
-		float spec[3] = { 0.0, 0.0, 0.0 };
-		float I[3] = { 0.0, 0.0, 0.0 };
+		Color I_direct(0, 0, 0);
+		Color I_reflected(0, 0, 0);
+		Color I_refracted(0, 0, 0);
 
-		for (unsigned int k = 0; k < light.size(); k++) {
-			//L is vector to light source
-			Vec L = (light[k].source - i.intersection).normalize();
-			
-			//determine closet intersection to the viewer
+		for (unsigned int i = 0; i < lights.size(); i++) {	
+			L = (lights[i].source - ptOnSurface.intersection).normalize();
+
+			//cast ray to light source through all objects to check if this point is in shadow
 			bool inShadow = false;
-
-			for (unsigned int kk = 0; kk < objects.size(); kk++) {
-				Intersection testForShadow = objects[kk]->intersect(L, i.intersection + L*0.0001);
+			for (unsigned int j = 0; j < objects.size(); j++) {
+				Intersection testForShadow = objects[j]->intersect(L, ptOnSurface.intersection + L*0.0001);
 				
-				//ray to light source does not hit this object, check to see if it hits others
 				if (testForShadow.intersection == Point(0, 0, 0)) {
 					continue;
 				}
-
-				//ray to light source has hit some object, omit this light's contribution
 				else {
 					inShadow = true;
+					break;
 				}
 			}
 
+			//don't calculate light if the point is in shadow
 			if (!inShadow) {
-				Vec R;
 				float L_dot_N = L.dot(N);
 
-				R.x = (2 * L_dot_N * N.x) - L.x;
-				R.y = (2 * L_dot_N * N.y) - L.y;
-				R.z = (2 * L_dot_N * N.z) - L.z;
-				R = R.normalize();
+				R = ((N*(2 * L_dot_N)) - L).normalize();
 				float R_dot_E = (R.dot(E) > 0) ? R.dot(E) : 0;
 
 				//add contributions of light source to color buffers
-				for (int i = 0; i < 3; i++) {
-					//Diffuse Light: I = C*K_d*(L*N) 
-					diff[i] = (L_dot_N > 0) ? object.K_d[i] * light[k].C[i] * L_dot_N : 0;
+				float diff[3] = { 0.0, 0.0, 0.0 };
+				float spec[3] = { 0.0, 0.0, 0.0 };
+				for (int j = 0; j < 3; j++) {
+					diff[j] = (L_dot_N > 0) ? object.K_d[j] * lights[i].C[j] * L_dot_N : 0;
+					spec[j] = (L_dot_N > 0) ? object.K_s[j] * lights[i].C[j] * pow(R_dot_E, object.n) : 0;
 
-					//Specular Light: I = C*K_s*(R*E)^n
-					spec[i] = (L_dot_N > 0) ? object.K_d[i] * light[k].C[i] * pow(R_dot_E, object.n) : 0;
-
-					I[i] += diff[i] + spec[i];
+					I_direct[j] += diff[j];
+					I_direct[j] += spec[j];
 				}
 			}
 		}
 
+		if (object.isReflective && reflection_count > 1) {
+			Vec viewer = (camera - ptOnSurface.intersection).normalize();
+			Vec incident = ((N*(2 * viewer.dot(N))) - viewer).normalize();
+
+			I_reflected = castRay(incident, ptOnSurface.intersection, reflection_count--);
+			I_reflected[0] = I_reflected[0] * object.G_e[0];
+			I_reflected[1] = I_reflected[1] * object.G_e[1];
+			I_reflected[2] = I_reflected[2] * object.G_e[2];
+		}
+
 		//add contribution of ambient light
+		float amb[3] = { 0.0, 0.0, 0.0 };
 		for (int i = 0; i < 3; i++) {
 			//Ambient Light: I = K_a*A
 			amb[i] = object.K_a[i] * A[i];
 
-			I[i] += amb[i];
-			if (I[i] > 1.0) I[i] = 1.0;
+			I_direct[i] += amb[i];
+			if (I_direct[i] > 1.0) I_direct[i] = 1.0;
 		}
 
-		return Color(I[0], I[1], I[2]);
+
+		Color finalColor(
+			I_direct[0] + I_reflected[0] + I_refracted[0],
+			I_direct[1] + I_reflected[1] + I_refracted[1],
+			I_direct[2] + I_reflected[2] + I_refracted[2]);
+
+		return finalColor;
+
 	}
 
 	//a ray is defined by a unit vector in a direction, and a starting point
-	Color castRay(Vec& v, Point& camera) { 
+	Color castRay(Vec& v, Point& camera, int reflection_count) { 
 		Color color;
 		
 		//determine closet intersection to the viewer
@@ -97,11 +109,11 @@ public:
 		closest.t = INF; //set initial intersection at infinity
 		int closest_object = 0;
 
-		for (unsigned int k = 0; k < objects.size(); k++) {
-			Intersection i = objects[k]->intersect(v, camera);
-			if (i.t < closest.t && !(i.intersection == Point(0, 0, 0))) {
-				closest = i;
-				closest_object = k;
+		for (unsigned int i = 0; i < objects.size(); i++) {
+			Intersection ptOnSurface = objects[i]->intersect(v, camera);
+			if (ptOnSurface.t < closest.t && !(ptOnSurface.intersection == Point(0, 0, 0))) {
+				closest = ptOnSurface;
+				closest_object = i;
 			}
 		}
 
@@ -109,7 +121,7 @@ public:
 			color = Color(0.4, 0.8, 0.9);
 		}
 		else {
-			color = calculate_light(closest, *(objects[closest_object]), lightSources, camera);
+			color = calculate_light(closest, *(objects[closest_object]), camera, reflection_count);
 		}
 
 		return color;
