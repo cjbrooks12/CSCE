@@ -39,6 +39,9 @@
     <ClInclude Include="Vec.h">
       <Filter>Header Files\Data Types</Filter>
     </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

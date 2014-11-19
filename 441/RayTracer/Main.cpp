@@ -11,6 +11,7 @@
 
 #include "Object.h"
 #include "Sphere.h"
+#include "Plane.h"
 
 using namespace std;
 
@@ -55,7 +56,7 @@ void display() {
 
 //RayTracing algorithm
 //------------------------------------------------------------------------------
-Point camera(0, 0.5, -100.0);
+Point camera(0.0, 0.0, -1.0);
 
 void render(Scene scene) {
 	for (int y = 0; y < ImageH; y++) {
@@ -70,8 +71,8 @@ void render(Scene scene) {
 
 			//calculate ray from camera to pixel
 			Point screen;
-			screen.x = (x / (ImageW / 2.0f)) - 1;
-			screen.y = (y / (ImageH / 2.0f)) + 1;
+			screen.x = ((2 * x) / (float)(ImageW - 1)) - 1;
+			screen.y = (1 - (2 * y) / (float)(ImageH - 1));
 
 			Vec V;
 			V.x = screen.x - camera.x;
@@ -80,7 +81,7 @@ void render(Scene scene) {
 			V.normalize();
 
 			//cast ray into scene, let magic commence
-			Color color = scene.castRay(V, camera);
+			Color color = scene.castRay(V, screen);
 
 			//store color into framebuffer
 			setFramebuffer(x, y, color);
@@ -92,10 +93,88 @@ void render(Scene scene) {
 //------------------------------------------------------------------------------
 Scene scene1() {
 	Scene scene;
-	Sphere *sphere = new Sphere();
-	sphere->C = Point(0, 2, 0.5);
-	sphere->r = 0.5;
-	scene.objects = sphere;
+
+	//This scene has 2 light sources
+	Light source1;
+	source1.source = Point(0.5, 0, -1);
+	source1.C[0] = 1.0;
+	source1.C[1] = 1.0;
+	source1.C[2] = 1.0;
+	scene.lightSources.push_back(source1);
+
+	Light source2;
+	source2.source = Point(-0.5, 0, 0);
+	source2.C[0] = 0.5;
+	source2.C[1] = 0.5;
+	source2.C[2] = 0.5;
+	scene.lightSources.push_back(source2);
+
+	//Light source3;
+	//source3.source = Point(0, 0.25, 1);
+	//source3.C[0] = 1.0;
+	//source3.C[1] = 1.0;
+	//source3.C[2] = 1.0;
+	//scene.lightSources.push_back(source3); 
+
+	//yellow sphere
+	Sphere *sphere1 = new Sphere();
+	sphere1->C = Point(-0.5, 0.5, 1.0);
+	sphere1->r = 0.5;
+
+	sphere1->K_a[0] = 0.2;
+	sphere1->K_a[1] = 0.2;
+	sphere1->K_a[2] = 0.0;
+
+	sphere1->K_d[0] = 1.0;
+	sphere1->K_d[1] = 1.0;
+	sphere1->K_d[2] = 0.0;
+
+	sphere1->K_s[0] = 0.5;
+	sphere1->K_s[1] = 0.5;
+	sphere1->K_s[2] = 0.5;
+
+	sphere1->n = 5;
+	scene.objects.push_back(sphere1);
+
+	//cyan sphere
+	Sphere *sphere2 = new Sphere();
+	sphere2->C = Point(0.25, 0.5, 0.5);
+	sphere2->r = 0.5;
+
+	sphere2->K_a[0] = 0.0;
+	sphere2->K_a[1] = 0.2;
+	sphere2->K_a[2] = 0.2;
+
+	sphere2->K_d[0] = 0.0;
+	sphere2->K_d[1] = 1.0;
+	sphere2->K_d[2] = 1.0;
+
+	sphere2->K_s[0] = 0.5;
+	sphere2->K_s[1] = 0.5;
+	sphere2->K_s[2] = 0.5;
+
+	sphere2->n = 50;
+	scene.objects.push_back(sphere2);
+
+	//red plane
+	Plane *plane1 = new Plane();
+	plane1->O = Point(0, 1, 0);
+	plane1->N = Vec(0, -1, 0);
+
+	plane1->K_a[0] = 0.2;
+	plane1->K_a[1] = 0.0;
+	plane1->K_a[2] = 0.0;
+
+	plane1->K_d[0] = 1.0;
+	plane1->K_d[1] = 0.0;
+	plane1->K_d[2] = 0.0;
+
+	plane1->K_s[0] = 0.0;
+	plane1->K_s[1] = 0.0;
+	plane1->K_s[2] = 0.0;
+
+	plane1->n = 5;
+	scene.objects.push_back(plane1);
 
 	return scene;
 }

@@ -40,7 +40,7 @@ public:
 		if (discriminant < 0) {
 			//no intersection
 			Intersection i;
-			i.t = -1;
+			i.intersection = Point(0, 0, 0);
 
 			return i;
 		}
@@ -53,23 +53,27 @@ public:
 
 			Intersection i;
 			if (t1 >= 0 && t2 >= 0) {
-				i.t = (t1 <= t2) ? t1 : t2;
-				i.normal = (P + (V*i.t)) - C;
+				float t = (t1 <= t2) ? t1 : t2;
+
+				i.intersection = (P + (V*t));
+				i.normal = (P + (V*t)) - C;
+				i.t = t;
 			}
 			else if (t1 >= 0 && t2 < 0) {
-				i.t = t1;
-				i.normal = (P + (V*i.t)) - C;
+				float t = t1;
+				i.intersection = (P + (V*t));
+				i.normal = (P + (V*t)) - C;
+				i.t = t;
 			}
 			else if (t1 < 0 && t2 > 0) {
-				i.t = t2;
-				i.normal = (P + (V*i.t)) - C;
+				float t = t2;
+				i.intersection = (P + (V*t));
+				i.normal = (P + (V*t)) - C;
+				i.t = t;
 			}
 			else {
-				i.t = -1;
+				i.intersection = Point(0, 0, 0);
 			}
-
-			
-				
 
 			return i;
 		}

@@ -6,7 +6,6 @@
 #define ImageH 600
 #define ImageD 300
 
-
 class Vec {
 public:
 	float x, y, z;
@@ -66,6 +65,11 @@ public:
 		z = v.z;
 
 		return *this;
+	}
+
+	bool operator==(Vec& v) {
+		if (x == v.x && y == v.y && z == v.z) return true;
+		else return false;
 	}
 };
 
