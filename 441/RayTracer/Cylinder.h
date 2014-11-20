@@ -8,6 +8,7 @@ class Sphere : public Object {
 public:
 	Point C; //center point of sphere
 	float r; //radius of sphere
+	Vec A; //unit axis of sphere;
 
 	Sphere() {}
 	//assume points within x[-1,1], yu[-1,1], z[0, 1]
@@ -28,7 +29,7 @@ public:
 		//
 		//final quadratic equation is 
 		//	(V*V)t^2 + 2V*(P-C)t + (P-C)(P-C)-r^2 = 
-		
+
 		//ray (should be calculated using screen coordinates
 		Vec V = v;
 		Point P = p;
@@ -40,7 +41,7 @@ public:
 		float b = (V * 2).dot(P - C);
 		float c = (P - C).dot(P - C) - r*r;
 
-		float discriminant = (b * b) - (4*a*c); //b^2 - 4ac
+		float discriminant = (b * b) - (4 * a*c); //b^2 - 4ac
 		if (discriminant < 0) {
 			//no intersection
 			Intersection i;

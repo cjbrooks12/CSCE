@@ -19,7 +19,6 @@ public:
 		case 0: return r;
 		case 1: return g;
 		case 2: return b;
-		default: float a = -1.0; return a;
 		}
 	};
 	Color& operator=(float c[3]) {
@@ -35,5 +34,36 @@ public:
 		b = c.b;
 
 		return *this;
+	}
+
+	bool operator==(Color& c) {
+		return ((r == c.r) && (g == c.g) && (b == c.b));
+	}
+
+	friend Color operator+(Color& lhs, Color& rhs) {
+		Color c;
+		c.r = lhs.r + rhs.r;
+		c.g = lhs.g + rhs.g;
+		c.b = lhs.b + rhs.b;
+
+		return c;
+	}
+
+	friend Color operator*(float lhs[3], Color& rhs) {
+		Color c;
+		c.r = lhs[0] * rhs.r;
+		c.g = lhs[1] * rhs.g;
+		c.b = lhs[2] * rhs.b;
+
+		return c;
+	}
+
+	friend Color operator*(float lhs, Color& rhs) {
+		Color c;
+		c.r = lhs * rhs.r;
+		c.g = lhs * rhs.g;
+		c.b = lhs * rhs.b;
+
+		return c;
 	}
 };

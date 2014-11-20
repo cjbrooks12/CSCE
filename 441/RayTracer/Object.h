@@ -28,29 +28,33 @@ public:
 	float K_a[3]; //ambient coefficient
 	float K_d[3]; //diffuse coefficient
 	float K_s[3]; //specular coefficient
-	int n;    //specular exponenet
-	float G_e[3]; //reflection coefficient
+	int n;    //specular exponent
 
 	bool isReflective;
+	float G_e; //reflection coefficient
+
+	bool isRefractive;
+	float G_a; //refractive coefficeint
+
+	
 
 	Object() {
-		K_a[0] = 0.2;
-		K_a[1] = 0.2;
-		K_a[2] = 0.0;
-
-		K_d[0] = 1.0;
-		K_d[1] = 1.0;
-		K_d[2] = 0.0;
-
-		K_s[0] = 0.5;
-		K_s[1] = 0.5;
-		K_s[2] = 0.5;
-
-		n = 5;
+		K_a[0] = K_a[1] = K_a[2] = 0;
+		K_d[0] = K_d[1] = K_d[2] = 0;
+		K_s[0] = K_s[1] = K_s[2] = 0;
+		G_e = 0;
+		G_a = 0;
+		
+		n = 0;
 
 		isReflective = false;
+		isRefractive = false;
 	}
 	~Object() {}
+
+	virtual float KA(Intersection pt, int i) = 0;
+	virtual float KD(Intersection pt, int i) = 0;
+	virtual float KS(Intersection pt, int i) = 0;
 
 	virtual Intersection intersect(Vec& v, Point& p) = 0;
 };

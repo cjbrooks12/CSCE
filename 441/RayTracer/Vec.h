@@ -2,9 +2,6 @@
 
 #include <cmath>
 #include <cassert>
-#define ImageW 600
-#define ImageH 600
-#define ImageD 300
 
 class Vec {
 public:
