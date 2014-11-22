@@ -33,22 +33,15 @@ public:
 	bool isReflective;
 	float G_e; //reflection coefficient
 
-	bool isRefractive;
-	float G_a; //refractive coefficeint
-
-	
-
 	Object() {
 		K_a[0] = K_a[1] = K_a[2] = 0;
 		K_d[0] = K_d[1] = K_d[2] = 0;
 		K_s[0] = K_s[1] = K_s[2] = 0;
 		G_e = 0;
-		G_a = 0;
 		
 		n = 0;
 
 		isReflective = false;
-		isRefractive = false;
 	}
 	~Object() {}
 

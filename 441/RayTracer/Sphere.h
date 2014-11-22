@@ -10,8 +10,6 @@ public:
 	float r; //radius of sphere
 
 	Sphere() {}
-	//assume points within x[-1,1], yu[-1,1], z[0, 1]
-	Sphere(Point& _C, float _r) : C(_C), r(_r) {}
 
 	float KA(Intersection pt, int i) { return K_a[i]; }
 	float KD(Intersection pt, int i) { return K_d[i]; }
@@ -45,7 +43,7 @@ public:
 			//no intersection
 			Intersection i;
 			i.intersection = Point(0, 0, 0);
-
+			i.t = -1;
 			return i;
 		}
 		else {
@@ -73,6 +71,7 @@ public:
 			}
 			else {
 				i.intersection = Point(0, 0, 0);
+				i.t = -1;
 			}
 
 			return i;

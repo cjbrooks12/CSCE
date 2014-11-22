@@ -12,9 +12,6 @@ public:
 	bool isCheckered;
 
 	Plane() {}
-	//assume points within x[-1,1], yu[-1,1], z[0, 1]
-	Plane(Point& _O, Vec _N) : O(_O), N(_N) {}
-
 
 	//override 
 	float KA(Intersection pt, int i) { 
@@ -23,40 +20,28 @@ public:
 			float depth = fmod(sqrt(pt.intersection.y*pt.intersection.y +
 				pt.intersection.z*pt.intersection.z), 1.0);
 
-			if (fabs(width) < 0.5) {
-				if (fabs(depth) < 0.5) {
-					if (width > 0) {
-						return K_a[i];
-					}
-					else {
-						return 0;
-					}
+			//1st quadrants
+			if (width >= 0 && depth >= 0) {
+				if ((fabs(width) < 0.5) && (fabs(depth) < 0.5)) {
+					return K_a[i];
+				}
+				else if ((fabs(width) >= 0.5) && (fabs(depth) >= 0.5)) {
+					return K_a[i];
 				}
 				else {
-					if (width > 0) {
-						return 0;
-					}
-					else {
-						return K_a[i];
-					}
+					return 0;
 				}
 			}
+			//2nd quadrant
 			else {
-				if (fabs(depth) < 0.5) {
-					if (width > 0) {
-						return 0;
-					}
-					else {
-						return K_a[i];
-					}
+				if ((fabs(width) < 0.5) && (fabs(depth) < 0.5)) {
+					return 0;
+				}
+				else if ((fabs(width) >= 0.5) && (fabs(depth) >= 0.5)) {
+					return 0;
 				}
 				else {
-					if (width > 0) {
-						return K_a[i];
-					}
-					else {
-						return 0;
-					}
+					return K_a[i];
 				}
 			}
 		}
@@ -71,40 +56,28 @@ public:
 			float depth = fmod(sqrt(pt.intersection.y*pt.intersection.y +
 				pt.intersection.z*pt.intersection.z), 1.0);
 
-			if (fabs(width) < 0.5) {
-				if (fabs(depth) < 0.5) {
-					if (width > 0) {
-						return K_d[i];
-					}
-					else {
-						return 0;
-					}
+			//1st quadrants
+			if (width >= 0 && depth >= 0) {
+				if ((fabs(width) < 0.5) && (fabs(depth) < 0.5)) {
+					return K_d[i];
+				}
+				else if ((fabs(width) >= 0.5) && (fabs(depth) >= 0.5)) {
+					return K_d[i];
 				}
 				else {
-					if (width > 0) {
-						return 0;
-					}
-					else {
-						return K_d[i];
-					}
+					return 0;
 				}
 			}
+			//2nd quadrant
 			else {
-				if (fabs(depth) < 0.5) {
-					if (width > 0) {
-						return 0;
-					}
-					else {
-						return K_d[i];
-					}
+				if ((fabs(width) < 0.5) && (fabs(depth) < 0.5)) {
+					return 0;
+				}
+				else if ((fabs(width) >= 0.5) && (fabs(depth) >= 0.5)) {
+					return 0;
 				}
 				else {
-					if (width > 0) {
-						return K_d[i];
-					}
-					else {
-						return 0;
-					}
+					return K_d[i];
 				}
 			}
 		}
@@ -119,8 +92,8 @@ public:
 			float depth = fmod(sqrt(pt.intersection.y*pt.intersection.y +
 				pt.intersection.z*pt.intersection.z), 1.0);
 
-			//1st and 3rd quadrants
-			if ((width > 0 && depth > 0) || (width < 0 && depth < 0)) {
+			//1st quadrants
+			if (width >= 0 && depth >= 0) {
 				if ((fabs(width) < 0.5) && (fabs(depth) < 0.5)) {
 					return K_s[i];
 				}
@@ -131,17 +104,16 @@ public:
 					return 0;
 				}
 			}
-
-			//2nd and 4th quadrants
+			//2nd quadrant
 			else {
-				if ((fabs(width) >= 0.5) && (fabs(depth) < 0.5)) {
-					return K_s[i];
+				if ((fabs(width) < 0.5) && (fabs(depth) < 0.5)) {
+					return 0;
 				}
-				else if ((fabs(width) < 0.5) && (fabs(depth) >= 0.5)) {
-					return K_s[i];
+				else if ((fabs(width) >= 0.5) && (fabs(depth) >= 0.5)) {
+					return 0;
 				}
 				else {
-					return 0;
+					return K_s[i];
 				}
 			}
 		}
@@ -170,6 +142,7 @@ public:
 		if (N.dot(V) == 0) {
 			Intersection i;
 			i.intersection = Point(0, 0, 0);
+			i.t = -1;
 			return i;
 		}
 
@@ -179,6 +152,7 @@ public:
 		if (t < 0) {
 			Intersection i;
 			i.intersection = Point(0, 0, 0);
+			i.t = -1;
 			return i;
 		}
 		else {

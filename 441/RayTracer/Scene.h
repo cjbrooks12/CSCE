@@ -33,11 +33,9 @@ public:
 		Vec L; //direction to light
 		Vec R; //direction of reflected vector
 		Vec E = (camera - ptOnSurface.intersection).normalize(); //direction to viewer
-		Vec N = ptOnSurface.normal; //normal to surface
+		Vec N = ptOnSurface.normal.normalize(); //normal to surface
 		
 		Color I_direct(0, 0, 0);
-		Color I_reflected(0, 0, 0);
-		Color I_refracted(0, 0, 0);
 
 		for (unsigned int i = 0; i < lights.size(); i++) {	
 			L = (lights[i].source - ptOnSurface.intersection).normalize();
@@ -45,14 +43,25 @@ public:
 			//cast ray to light source through all objects to check if this point is in shadow
 			bool inShadow = false;
 			for (unsigned int j = 0; j < objects.size(); j++) {
-				Intersection testForShadow = objects[j]->intersect(L, ptOnSurface.intersection + L*0.0001);
+				Intersection testForShadow = objects[j]->intersect(L, 
+					ptOnSurface.intersection + ptOnSurface.normal*0.0001);
 				
 				if (testForShadow.intersection == Point(0, 0, 0)) {
-					continue;
+					inShadow = false;
 				}
 				else {
-					inShadow = true;
-					break;
+					//find vectors to the object of intersection and to the light
+					Vec toObject = testForShadow.intersection - ptOnSurface.intersection;
+					Vec toLight = lights[i].source - ptOnSurface.intersection;
+
+					//find magnitude of each vector
+					if (toObject.magnitude() < toLight.magnitude()) {
+						inShadow = true;
+						break;
+					}
+					else {
+						continue;
+					}
 				}
 			}
 
@@ -67,7 +76,7 @@ public:
 				float diff[3] = { 0.0, 0.0, 0.0 };
 				float spec[3] = { 0.0, 0.0, 0.0 };
 				for (int j = 0; j < 3; j++) {
-					diff[j] = (L_dot_N > 0) ? object.KS(ptOnSurface, j) * lights[i].C[j] * L_dot_N : 0;
+					diff[j] = (L_dot_N > 0) ? object.KD(ptOnSurface, j) * lights[i].C[j] * L_dot_N : 0;
 					spec[j] = (L_dot_N > 0) ? object.KS(ptOnSurface, j) * lights[i].C[j] * pow(R_dot_E, object.n) : 0;
 
 					I_direct[j] += diff[j];
@@ -80,12 +89,11 @@ public:
 		float amb[3] = { 0.0, 0.0, 0.0 };
 		for (int i = 0; i < 3; i++) {
 			//Ambient Light: I = K_a*A
-			amb[i] = object.KS(ptOnSurface, i) * A[i];
+			amb[i] = object.KA(ptOnSurface, i) * A[i];
 
 			I_direct[i] += amb[i];
 			if (I_direct[i] > 1.0) I_direct[i] = 1.0;
 		}
-
 
 		return Color(I_direct[0], I_direct[1], I_direct[2]);
 	}
@@ -116,7 +124,6 @@ public:
 			//determine direct light on object
 			direct = calculate_light(closest, *(objects[closest_object]), camera, reflection_count);
 
-
 			//determine reflective light on object (if any)
 			if (objects[closest_object]->isReflective && reflection_count > 1) {
 				//determine the incident ray from camera, and recur on that ray
@@ -129,19 +136,9 @@ public:
 				if (reflective == backgroundColor) reflective = Color(0, 0, 0);
 			}
 
-			//determine refractive light on object (if any)
-			if (objects[closest_object]->isRefractive && reflection_count > 1) {
-				//determine the incident ray through object, and recur on that ray
-				Vec V = (camera - closest.intersection).normalize(); //direction to viewer
-				Vec N = closest.normal; //normal to surface
-				Vec R = ((N*(2 * V.dot(N))) - V).normalize(); //direction of reflected ray
+			
 
-				refractive = castRay(R, camera, reflection_count - 1);
-
-				if (refractive == backgroundColor) refractive = Color(0, 0, 0);
-			}
-
-			return direct + (objects[closest_object]->G_e)*reflective + (objects[closest_object]->G_a)*refractive;
+			return direct + (objects[closest_object]->G_e)*reflective;
 		}
 	}
 };

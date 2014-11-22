@@ -29,14 +29,23 @@ public:
 	Vec cross(Vec &v){
 		return Vec(y*v.z - z*v.y, -x*v.z + z*v.x, x*v.y - y*v.x);
 	}
+	float magnitude() {
+		return sqrt(x*x + y*y + z*z);
+	}
 	Vec operator+(const Vec &v) {
 		return Vec(x + v.x, y + v.y, z + v.z);
 	}
 	Vec operator-(const Vec &v) {
 		return Vec(x - v.x, y - v.y, z - v.z);
 	}
+	Vec operator-(const float &f) {
+		return Vec(x - f, y - f, z - f);
+	}
 	Vec operator*(float c) {
 		return Vec(c*x, c*y, c*z);
+	}
+	Vec operator*(Vec& v) {
+		return Vec(x*v.x, y*v.y, z*v.z);
 	}
 
 	//overload operators to make it easier to manipulate Vec objects
