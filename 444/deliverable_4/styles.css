@@ -1,0 +1,58 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: white !important;
+}
+#year_input input {
+    width: 100%;
+}
+.back_button {
+  position: absolute;
+  background-color:#F44336;
+  width:48px;
+  height:48px;
+  border-radius:100%;
+  color:#000;
+  font-size:38px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin: 16px;
+}
+
+#map_layer {
+  position: absolute;
+  background-color: #90C3D4;
+}
+#images_layer {
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+}
+#counts_layer {
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+}
+.column_content {
+  background-color: #f0f0f0;
+  margin: 8px;
+  padding: 8px;
+  box-shadow: 0px 4px 4px #333;
+  border-radius: 4px;
+}
+
+/* Styling of map */
+.graticule {
+  fill: none;
+  stroke: #888;
+  stroke-width: 0.5px;
+  stroke-opacity: .50;
+}
+
+.land {
+  fill: #222;
+}
+
+.boundary {
+  fill: none;
+  stroke-width: .5px;
+}

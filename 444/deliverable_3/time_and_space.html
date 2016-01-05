@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Time and Space</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="content.js" charset="utf-8"></script>
+    <script src="display_data.js" charset="utf-8"></script>
+    <script src="display_map.js" charset="utf-8"></script>
+  </head>
+  <body onresize="pageResized()">
+    <div id="page_content">
+
+      <!-- Content of the background map layer (populated by D3) -->
+      <div id="map_layer">
+      </div>
+
+      <!-- Content of the D# visualization on top of the map -->
+      <div id="visualization">
+      </div>
+
+      <!-- Content of the floating search area -->
+      <div id="input" class="panel panel-transparent">
+        <div class="panel-heading">
+          <b>Search</b>
+          <span class="glyphicon glyphicon-list" style="float:right; margin-left: 12px" onclick="$('#search_body').toggle(100);">
+        </div>
+        <div id="search_body" class="panel-body">
+          <div>Enter tags separated by commas</div>
+          <form class="form-inline" role="form">
+            <div class="input-group">
+              <span id="tag_search" class="input-group-addon" onclick="search();"><span class="glyphicon glyphicon-search"></span></span>
+              <input id="search_input" type="text" class="form-control" placeholder="Search">
+            </div>
+            <br />
+            <div class="input-group">
+              <label class="radio-inline"><input type="radio" name="optradio" checked>AND</label>
+              <label class="radio-inline"><input type="radio" name="optradio">OR</label>
+            </div>
+            <div class="input-group">
+              <input id="year_input" type="range" name="points" min="0" max="25" value="0">
+              <div id="year_input_text"></div>
+            </div>
+          </form>
+          <div id="suggestions">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- put the script tag at the end of the document, so that it gets executed
+         after the rest of the page is loaded -->
+    <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>
+
