@@ -1,0 +1,14 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.navigation {
+    color: #855585;
+}
+
+.nav_group {
+    display: block;
+    float: left;
+    margin: 12px;
+}
