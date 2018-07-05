@@ -1,0 +1,123 @@
+body {
+    background-image: url("wood_tile.jpg");
+    background-repeat: repeat;
+    margin: 0px;
+    padding: 0px;
+}
+
+.page_layout {
+  position: absolute;
+  width: 1280px;
+  height: 720px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.page_layout .bg {
+  position: absolute;
+  z-index: 1;
+}
+
+.page_layout .bg_decor {
+  position: absolute;
+  z-index: 2;
+}
+
+.highlight {
+  position: absolute;
+}
+
+.highlight:hover {
+  -webkit-filter: drop-shadow(0px 0px 4px #cc0000);
+	filter: url(shadow.svg#drop-shadow);
+}
+
+.highlight-lg {
+  position: absolute;
+}
+
+.highlight-lg:hover {
+  -webkit-filter: drop-shadow(0px 0px 4px #cc0000);
+	filter: url(shadow.svg#drop-shadow);
+}
+
+#looking_glass {
+  position: absolute;
+}
+
+.page_layout .journal_title {
+  -webkit-transform: rotate(8.5deg);
+  font-family: 'Architects Daughter', cursive;
+  font-size: 30px;
+  position: absolute;
+  top: 198px;
+  left: 935px;
+  width: 280px;
+  height: 380px;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.page_layout .journal_content {
+  -webkit-transform: rotate(8.5deg);
+  font-family: 'Architects Daughter', cursive;
+  position: absolute;
+  top: 245px;
+  left: 935px;
+  width: 280px;
+  height: 410px;
+  z-index: 5;
+  overflow: auto;
+}
+
+.page_layout .journal_page_number {
+  -webkit-transform: rotate(8.5deg);
+  font-family: 'Architects Daughter', cursive;
+  position: absolute;
+  font-size: 24px;
+  top: 615px;
+  left: 1055px;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.page_layout a {
+  color: black;
+}
+
+/*Lets create the magnifying glass*/
+.large {
+	width: 130px; height: 130px;
+	position: absolute;
+	border-radius: 100%;
+  pointer-events:none;
+
+	/*Multiple box shadows to achieve the glass effect*/
+	box-shadow:
+	0 0 7px 7px rgba(0, 0, 0, 0.25),
+	inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+
+	/*Lets load up the large image first*/
+	background: url('page_0_large.png') no-repeat;
+
+	/*hide the glass by default*/
+	display: none;
+
+	z-index: 50;
+}
+
+.small {
+	z-index: 40;
+}
+
+.log {
+  z-index: 1000000;
+}
+
+.magnify {
+  -webkit-filter: drop-shadow(0px 0px 4px #000000);
+	filter: url(shadow.svg#drop-shadow);
+}

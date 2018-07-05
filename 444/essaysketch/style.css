@@ -1,0 +1,66 @@
+body {
+    background-image: url("wood_tile.jpg");
+    background-repeat: repeat;
+}
+
+.page_layout {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 1280px;
+  height: 720px;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+}
+
+.page_layout .bg {
+  position: fixed;
+  z-index: 1;
+}
+
+.page_layout .bg_decor {
+  position: fixed;
+  z-index: 2;
+}
+
+.page_layout .highlight {
+  position: fixed;
+  z-index: 5;
+}
+
+.page_layout .highlight:hover{
+  -webkit-filter: drop-shadow(0px 0px 4px #cc0000);
+	filter: url(shadow.svg#drop-shadow);
+}
+
+/*.page_layout .iSpyPage {*/
+/*  position: fixed;*/
+/*  top: 76px;*/
+/*  left: 146px;*/
+/*  z-index: 4;*/
+/*}*/
+
+.page_layout .journal_title {
+  -webkit-transform: rotate(8.5deg);
+  font-size: 36px;
+  position: fixed;
+  top: 198px;
+  left: 935px;
+  width: 280px;
+  height: 380px;
+  z-index: 5;
+  overflow:hidden;
+}
+
+.page_layout .journal_content {
+  -webkit-transform: rotate(8.5deg);
+  position: fixed;
+  top: 245px;
+  left: 935px;
+  width: 280px;
+  height: 345px;
+  z-index: 5;
+  overflow:hidden;
+}
