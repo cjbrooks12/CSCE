@@ -1,0 +1,39 @@
+
+n = 1;
+y = (-1)^(n-1) / factorial(2*n - 1);
+S = 0;
+while abs(y) > .0001
+    S = S + y
+
+S =
+
+     1
+
+    n = n+1;
+    y = (-1)^(n+1) / factorial(2*n - 1);
+    S = S + y
+
+S =
+
+   0.833333333333333
+
+    n = n+1;
+    y = (-1)^(n+1) / factorial(2*n - 1);
+    S = S + y
+
+S =
+
+   0.841666666666667
+
+    n = n+1;
+    y = (-1)^(n+1) / factorial(2*n - 1);
+    S = S + y
+
+S =
+
+   0.841468253968254
+
+    n = n+1;
+    y = (-1)^(n+1) / factorial(2*n - 1);
+end
+diary off;

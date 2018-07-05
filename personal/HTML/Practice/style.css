@@ -1,0 +1,76 @@
+.noText{
+    width:100px;
+    height:100px;
+    padding-top:2px;
+    padding-bottom:1px;
+    padding-right:0px;
+    padding-left:17px;
+    font-family:Serif;
+    font-size:45px;
+}
+.redText{
+    background-color:red;
+    width:100px;
+    height:100px;
+    padding-top:2px;
+    padding-bottom:1px;
+    padding-right:0px;
+    padding-left:17px;
+    font-family:Serif;
+    font-size:45px;
+}
+.orangeText{
+    background-color:orange;
+    width:100px;
+    height:100px;
+    padding-top:2px;
+    padding-bottom:1px;
+    padding-right:0px;
+    padding-left:17px;
+    font-family:Serif;
+    font-size:45px;
+}
+.yellowText{
+    background-color:yellow;
+    width:100px;
+    height:100px;
+    padding-top:2px;
+    padding-bottom:1px;
+    padding-right:0px;
+    padding-left:17px;
+    font-family:Serif;
+    font-size:45px;
+}
+.greenText{
+    background-color:green;
+    width:100px;
+    height:100px;
+    padding-top:2px;
+    padding-bottom:1px;
+    padding-right:0px;
+    padding-left:17px;
+    font-family:Serif;
+    font-size:45px;
+}
+.blueText{
+    background-color:blue;
+    width:100px;
+    height:100px;
+    padding-top:2px;
+    padding-bottom:1px;
+    padding-right:0px;
+    padding-left:17px;
+    font-family:Serif;
+    font-size:45px;
+}
+.purpleText{
+    background-color:purple;
+    width:100px;
+    height:100px;
+    padding-top:2px;
+    padding-bottom:1px;
+    padding-right:0px;
+    padding-left:17px;
+    font-family:Serif;
+    font-size:45px;
+}

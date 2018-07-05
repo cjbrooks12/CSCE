@@ -1,0 +1,19 @@
+
+x = linspace(-4,4,1000);
+f = sqrt(1+x);
+g = 1 + x./2;
+h = 1 + x./2 - (x.^2)./8;
+i = 1 + x./2 - (x.^2)./8 + (x.^3)./16;
+
+plot(x,f);
+{Warning: Imaginary parts of complex X and/or Y arguments ignored} 
+{> In <a href="matlab: opentoline('\\toaster\homes\c\j\cjbrooks12\nt\AccountSettings\Desktop\s633x23.m',11,1)">s633x23 at 11</a>} 
+hold on;
+plot(x,g);
+hold on;
+plot(x,h);
+hold on;
+plot(x,i);
+hold off;
+
+echo off; diary off;

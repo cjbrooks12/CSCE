@@ -1,0 +1,349 @@
+<html>
+<head>
+    <title>36 Cube</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <form name="clientForm" id="clientForm">
+    <table>
+    <tr><!-- Row 1-->
+        <td><select name="a1" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_5</option>
+            <option class="redText"    value="red"   >R5</option>
+            <option class="orangeText" value="orange">O5</option>
+            <option class="yellowText" value="yellow">Y5</option>
+            <option class="greenText"  value="green" >G5</option>
+            <option class="blueText"   value="blue"  >B5</option>
+            <option class="purpleText" value="purple">P5</option>
+        </select></td>
+        <td><select name="a2" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_3</option>
+            <option class="redText"    value="red"   >R3</option>
+            <option class="orangeText" value="orange">O3</option>
+            <option class="yellowText" value="yellow">Y3</option>
+            <option class="greenText"  value="green" >G3</option>
+            <option class="blueText"   value="blue"  >B3</option>
+            <option class="purpleText" value="purple">P3</option>
+        </select></td>
+        <td><select name="a3" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_2</option>
+            <option class="redText"    value="red"   >R2</option>
+            <option class="orangeText" value="orange">O2</option>
+            <option class="yellowText" value="yellow">Y2</option>
+            <option class="greenText"  value="green" >G2</option>
+            <option class="blueText"   value="blue"  >B2</option>
+            <option class="purpleText" value="purple">P2</option>
+        </select></td>
+        <td><select name="a4" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_1</option>
+            <option class="redText"    value="red"   >R1</option>
+            <option class="orangeText" value="orange">O1</option>
+            <option class="yellowText" value="yellow">Y1</option>
+            <option class="greenText"  value="green" >G1</option>
+            <option class="blueText"   value="blue"  >B1</option>
+            <option class="purpleText" value="purple">P1</option>
+        </select></td>
+        <td><select name="a5" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_4</option>
+            <option class="redText"    value="red"   >R4</option>
+            <option class="orangeText" value="orange">O4</option>
+            <option class="yellowText" value="yellow">Y4</option>
+            <option class="greenText"  value="green" >G4</option>
+            <option class="blueText"   value="blue"  >B4</option>
+            <option class="purpleText" value="purple">P4</option>
+        </select></td>
+        <td><select name="a6" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_6</option>
+            <option class="redText"    value="red"   >R6</option>
+            <option class="orangeText" value="orange">O6</option>
+            <option class="yellowText" value="yellow">Y6</option>
+            <option class="greenText"  value="green" >G6</option>
+            <option class="blueText"   value="blue"  >B6</option>
+            <option class="purpleText" value="purple">P6</option>
+        </select></td>
+    </tr>
+    <tr><!-- Row 2-->
+        <td><select name="b1" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_4</option>
+            <option class="redText"    value="red"   >R4</option>
+            <option class="orangeText" value="orange">O4</option>
+            <option class="yellowText" value="yellow">Y4</option>
+            <option class="greenText"  value="green" >G4</option>
+            <option class="blueText"   value="blue"  >B4</option>
+            <option class="purpleText" value="purple">P4</option>
+        </select></td>
+        <td><select name="b2" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_1</option>
+            <option class="redText"    value="red"   >R1</option>
+            <option class="orangeText" value="orange">O1</option>
+            <option class="yellowText" value="yellow">Y1</option>
+            <option class="greenText"  value="green" >G1</option>
+            <option class="blueText"   value="blue"  >B1</option>
+            <option class="purpleText" value="purple">P1</option>
+        </select></td>
+        <td><select name="b3" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_5</option>
+            <option class="redText"    value="red"   >R5</option>
+            <option class="orangeText" value="orange">O5</option>
+            <option class="yellowText" value="yellow">Y5</option>
+            <option class="greenText"  value="green" >G5</option>
+            <option class="blueText"   value="blue"  >B5</option>
+            <option class="purpleText" value="purple">P5</option>
+        </select></td>
+        <td><select name="b4" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_2</option>
+            <option class="redText"    value="red"   >R2</option>
+            <option class="orangeText" value="orange">O2</option>
+            <option class="yellowText" value="yellow">Y2</option>
+            <option class="greenText"  value="green" >G2</option>
+            <option class="blueText"   value="blue"  >B2</option>
+            <option class="purpleText" value="purple">P2</option>
+        </select></td>
+        <td><select name="b5" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_5</option>
+            <option class="redText"    value="red"   >R5</option>
+            <option class="orangeText" value="orange">O5</option>
+            <option class="yellowText" value="yellow">Y5</option>
+            <option class="greenText"  value="green" >G5</option>
+            <option class="blueText"   value="blue"  >B5</option>
+            <option class="purpleText" value="purple">P5</option>
+        </select></td>
+        <td><select name="b6" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_3</option>
+            <option class="redText"    value="red"   >R3</option>
+            <option class="orangeText" value="orange">O3</option>
+            <option class="yellowText" value="yellow">Y3</option>
+            <option class="greenText"  value="green" >G3</option>
+            <option class="blueText"   value="blue"  >B3</option>
+            <option class="purpleText" value="purple">P3</option>
+        </select></td>
+    </tr>
+    <tr><!-- Row 3-->
+        <td><select name="c1" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_6</option>
+            <option class="redText"    value="red"   >R6</option>
+            <option class="orangeText" value="orange">O6</option>
+            <option class="yellowText" value="yellow">Y6</option>
+            <option class="greenText"  value="green" >G6</option>
+            <option class="blueText"   value="blue"  >B6</option>
+            <option class="purpleText" value="purple">P6</option>
+        </select></td>
+        <td><select name="c2" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_5</option>
+            <option class="redText"    value="red"   >R5</option>
+            <option class="orangeText" value="orange">O5</option>
+            <option class="yellowText" value="yellow">Y5</option>
+            <option class="greenText"  value="green" >G5</option>
+            <option class="blueText"   value="blue"  >B5</option>
+            <option class="purpleText" value="purple">P5</option>
+        </select></td>
+        <td><select name="c3" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_3</option>
+            <option class="redText"    value="red"   >R3</option>
+            <option class="orangeText" value="orange">O3</option>
+            <option class="yellowText" value="yellow">Y3</option>
+            <option class="greenText"  value="green" >G3</option>
+            <option class="blueText"   value="blue"  >B3</option>
+            <option class="purpleText" value="purple">P3</option>
+        </select></td>
+        <td><select name="c4" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_4</option>
+            <option class="redText"    value="red"   >R4</option>
+            <option class="orangeText" value="orange">O4</option>
+            <option class="yellowText" value="yellow">Y4</option>
+            <option class="greenText"  value="green" >G4</option>
+            <option class="blueText"   value="blue"  >B4</option>
+            <option class="purpleText" value="purple">P4</option>
+        </select></td>
+        <td><select name="c5" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_1</option>
+            <option class="redText"    value="red"   >R1</option>
+            <option class="orangeText" value="orange">O1</option>
+            <option class="yellowText" value="yellow">Y1</option>
+            <option class="greenText"  value="green" >G1</option>
+            <option class="blueText"   value="blue"  >B1</option>
+            <option class="purpleText" value="purple">P1</option>
+        </select></td>
+        <td><select name="c6" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_2</option>
+            <option class="redText"    value="red"   >R2</option>
+            <option class="orangeText" value="orange">O2</option>
+            <option class="yellowText" value="yellow">Y2</option>
+            <option class="greenText"  value="green" >G2</option>
+            <option class="blueText"   value="blue"  >B2</option>
+            <option class="purpleText" value="purple">P2</option>
+        </select></td>
+    </tr>
+    <tr><!-- Row 4-->
+        <td><select name="d1" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_1</option>
+            <option class="redText"    value="red"   >R1</option>
+            <option class="orangeText" value="orange">O1</option>
+            <option class="yellowText" value="yellow">Y1</option>
+            <option class="greenText"  value="green" >G1</option>
+            <option class="blueText"   value="blue"  >B1</option>
+            <option class="purpleText" value="purple">P1</option>
+        </select></td>
+        <td><select name="d2" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_2</option>
+            <option class="redText"    value="red"   >R2</option>
+            <option class="orangeText" value="orange">O2</option>
+            <option class="yellowText" value="yellow">Y2</option>
+            <option class="greenText"  value="green" >G2</option>
+            <option class="blueText"   value="blue"  >B2</option>
+            <option class="purpleText" value="purple">P2</option>
+        </select></td>
+        <td><select name="d3" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_6</option>
+            <option class="redText"    value="red"   >R6</option>
+            <option class="orangeText" value="orange">O6</option>
+            <option class="yellowText" value="yellow">Y6</option>
+            <option class="greenText"  value="green" >G6</option>
+            <option class="blueText"   value="blue"  >B6</option>
+            <option class="purpleText" value="purple">P6</option>
+        </select></td>
+        <td><select name="d4" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_3</option>
+            <option class="redText"    value="red"   >R3</option>
+            <option class="orangeText" value="orange">O3</option>
+            <option class="yellowText" value="yellow">Y3</option>
+            <option class="greenText"  value="green" >G3</option>
+            <option class="blueText"   value="blue"  >B3</option>
+            <option class="purpleText" value="purple">P3</option>
+        </select></td>
+        <td><select name="d5" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_6</option>
+            <option class="redText"    value="red"   >R6</option>
+            <option class="orangeText" value="orange">O6</option>
+            <option class="yellowText" value="yellow">Y6</option>
+            <option class="greenText"  value="green" >G6</option>
+            <option class="blueText"   value="blue"  >B6</option>
+            <option class="purpleText" value="purple">P6</option>
+        </select></td>
+        <td><select name="d6" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_4</option>
+            <option class="redText"    value="red"   >R4</option>
+            <option class="orangeText" value="orange">O4</option>
+            <option class="yellowText" value="yellow">Y4</option>
+            <option class="greenText"  value="green" >G4</option>
+            <option class="blueText"   value="blue"  >B4</option>
+            <option class="purpleText" value="purple">P4</option>
+        </select></td
+    </tr>
+    <tr><!-- Row 5-->
+        <td><select name="e1" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_2</option>
+            <option class="redText"    value="red"   >R2</option>
+            <option class="orangeText" value="orange">O2</option>
+            <option class="yellowText" value="yellow">Y2</option>
+            <option class="greenText"  value="green" >G2</option>
+            <option class="blueText"   value="blue"  >B2</option>
+            <option class="purpleText" value="purple">P2</option>
+        </select></td>
+        <td><select name="e2" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_4</option>
+            <option class="redText"    value="red"   >R4</option>
+            <option class="orangeText" value="orange">O4</option>
+            <option class="yellowText" value="yellow">Y4</option>
+            <option class="greenText"  value="green" >G4</option>
+            <option class="blueText"   value="blue"  >B4</option>
+            <option class="purpleText" value="purple">P4</option>
+        </select></td>
+        <td><select name="e3" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_1</option>
+            <option class="redText"    value="red"   >R1</option>
+            <option class="orangeText" value="orange">O1</option>
+            <option class="yellowText" value="yellow">Y1</option>
+            <option class="greenText"  value="green" >G1</option>
+            <option class="blueText"   value="blue"  >B1</option>
+            <option class="purpleText" value="purple">P1</option>
+        </select></td>
+        <td><select name="e4" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_6</option>
+            <option class="redText"    value="red"   >R6</option>
+            <option class="orangeText" value="orange">O6</option>
+            <option class="yellowText" value="yellow">Y6</option>
+            <option class="greenText"  value="green" >G6</option>
+            <option class="blueText"   value="blue"  >B6</option>
+            <option class="purpleText" value="purple">P6</option>
+        </select></td>
+        <td><select name="e5" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_3</option>
+            <option class="redText"    value="red"   >R3</option>
+            <option class="orangeText" value="orange">O3</option>
+            <option class="yellowText" value="yellow">Y3</option>
+            <option class="greenText"  value="green" >G3</option>
+            <option class="blueText"   value="blue"  >B3</option>
+            <option class="purpleText" value="purple">P3</option>
+        </select></td>
+        <td><select name="e6" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_5</option>
+            <option class="redText"    value="red"   >R5</option>
+            <option class="orangeText" value="orange">O5</option>
+            <option class="yellowText" value="yellow">Y5</option>
+            <option class="greenText"  value="green" >G5</option>
+            <option class="blueText"   value="blue"  >B5</option>
+            <option class="purpleText" value="purple">P5</option>
+        </select></td>
+    </tr>
+    <tr><!-- Row 6-->
+        <td><select name="f1" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_3</option>
+            <option class="redText"    value="red"   >R3</option>
+            <option class="orangeText" value="orange">O3</option>
+            <option class="yellowText" value="yellow">Y3</option>
+            <option class="greenText"  value="green" >G3</option>
+            <option class="blueText"   value="blue"  >B3</option>
+            <option class="purpleText" value="purple">P3</option>
+        </select></td>
+        <td><select name="f2" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_6</option>
+            <option class="redText"    value="red"   >R6</option>
+            <option class="orangeText" value="orange">O6</option>
+            <option class="yellowText" value="yellow">Y6</option>
+            <option class="greenText"  value="green" >G6</option>
+            <option class="blueText"   value="blue"  >B6</option>
+            <option class="purpleText" value="purple">P6</option>
+        </select></td>
+        <td><select name="f3" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_4</option>
+            <option class="redText"    value="red"   >R4</option>
+            <option class="orangeText" value="orange">O4</option>
+            <option class="yellowText" value="yellow">Y4</option>
+            <option class="greenText"  value="green" >G4</option>
+            <option class="blueText"   value="blue"  >B4</option>
+            <option class="purpleText" value="purple">P4</option>
+        </select></td>
+        <td><select name="f4" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_5</option>
+            <option class="redText"    value="red"   >R5</option>
+            <option class="orangeText" value="orange">O5</option>
+            <option class="yellowText" value="yellow">Y5</option>
+            <option class="greenText"  value="green" >G5</option>
+            <option class="blueText"   value="blue"  >B5</option>
+            <option class="purpleText" value="purple">P5</option>
+        </select></td>
+        <td><select name="f5" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_2</option>
+            <option class="redText"    value="red"   >R2</option>
+            <option class="orangeText" value="orange">O2</option>
+            <option class="yellowText" value="yellow">Y2</option>
+            <option class="greenText"  value="green" >G2</option>
+            <option class="blueText"   value="blue"  >B2</option>
+            <option class="purpleText" value="purple">P2</option>
+        </select></td>
+        <td><select name="f6" onchange="this.className=this.options[this.selectedIndex].className" class="noText">
+            <option class="noText"     value="none"  >_1</option>
+            <option class="redText"    value="red"   >R1</option>
+            <option class="orangeText" value="orange">O1</option>
+            <option class="yellowText" value="yellow">Y1</option>
+            <option class="greenText"  value="green" >G1</option>
+            <option class="blueText"   value="blue"  >B1</option>
+            <option class="purpleText" value="purple">P1</option>
+        </select></td>
+    </tr>
+    </table>
+</form>
+<script type="text/javascript" src="domstorage-persist.js"></script>
+</body>
+</html>
