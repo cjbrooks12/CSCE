@@ -1,0 +1,15 @@
+Pros:
+• Pretty decent operating system, once you get it configured the way you want it.
+• It is fast and responsive, and some of the features (such as the startup tab on the process manager, showing you what you have running on startup and the startup speed impact) are quite nice.
+
+Cons:
+• LOTS of advertising from the OS itself - Microsoft seems to have missed the memo that people HATE popups. No, I don't want to try Office365. No, I don't want to give you feedback. No, I don't care about your "great offers".
+• Privacy settings are not all centrally located - you have to go to several different places to turn them all off. Google "Windows 10 privacy settings" or similar for some guides.
+• Startup menu, by default, is a fail-parade. It's enormous, and has tons of "pins" showing lots of information I don't care in the slightest about, including more advertising. You can, however, right-click items on the menu and un-pin them, and then resize the start menu to something acceptable.
+• Logging in can be a pain - if you let the OS know you have a Microsoft account of any kind, it will automatically link itself to it, and then you'll have to enter the password for that online account to log in, rather than the password you set at install. It doesn't come out and tell you this either - and it can be a hassle if you store your passwords in something like LastPass or KeePass, since you can't get to them if you can't log on. This is another setting that can, fortunately, be changed. (System Settings -> Manage My Account -> "Sign in with an off-line account instead")
+
+Other/Neutral:
+• I still prefer the look and feel of Windows 7 - I'm not wild about the tablet-ized interface, it just feels silly on a destop PC. And stop calling programs "apps", please. It's just silly.
+
+OVERALL:
+2 stars out of the box, 4 stars once you take the time to configure it.

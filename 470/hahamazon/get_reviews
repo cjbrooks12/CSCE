@@ -1,0 +1,84 @@
+#!/bin/bash
+
+echo 'getting Banana Slicer reviews'
+node amazon-items.js http://www.amazon.com/dp/B0047E0EII 00
+sleep 5
+
+echo 'getting Three Wolf Moon T-Shirt reviews'
+node amazon-items.js http://www.amazon.com/dp/B008B5ISVO 01
+sleep 5
+
+echo 'getting BIC Cristal For Her Ball Pen reviews'
+node amazon-items.js http://www.amazon.com/dp/B004F9QBE6 02
+sleep 5
+
+echo 'getting Steering Wheel Tray reviews'
+node amazon-items.js http://www.amazon.com/dp/B004H38YZY 03
+sleep 5
+
+echo 'getting Binders Full Of Women reviews'
+node amazon-items.js http://www.amazon.com/dp/B001B0CTMU 04
+sleep 5
+
+echo 'getting Tuscan Whole Milk reviews'
+node amazon-items.js http://www.amazon.com/dp/B00032G1S0 05
+sleep 5
+
+echo 'getting Uranium Ore reviews'
+node amazon-items.js http://www.amazon.com/dp/B000796XXM 06
+sleep 5
+
+echo 'getting Expensive HDMI Cable reviews'
+node amazon-items.js http://www.amazon.com/dp/B000I1X6PM 07
+sleep 5
+
+echo 'getting Horse Mask reviews'
+node amazon-items.js http://www.amazon.com/dp/B003G4IM4S 08
+sleep 5
+
+echo 'getting How To Avoid Huge Ships reviews'
+node amazon-items.js http://www.amazon.com/dp/0870334336 09
+sleep 5
+
+echo 'getting Land Cruiser/Tank reviews'
+node amazon-items.js http://www.amazon.com/dp/B00067F1CE 10
+sleep 5
+
+echo 'getting Wood Toilet Seats in Greater China reviews'
+node amazon-items.js http://www.amazon.com/dp/B001T44Z0W 11
+sleep 5
+
+echo 'getting Fresh Whole Rabbit reviews'
+node amazon-items.js http://www.amazon.com/dp/B00012182G 12
+sleep 5
+
+echo 'getting A Million Random Digits reviews'
+node amazon-items.js http://www.amazon.com/dp/0833030477 13
+sleep 5
+
+echo 'getting UFO Detector reviews'
+node amazon-items.js http://www.amazon.com/dp/B000FVUKKO 14
+sleep 5
+
+echo 'getting 55 Gallon Drum of Lube reviews'
+node amazon-items.js http://www.amazon.com/dp/B005MR3IVO 15
+sleep 5
+
+echo 'getting Sugar-Free Gummy Bears reviews'
+node amazon-items.js http://www.amazon.com/dp/B000EVQWKC 16
+sleep 5
+
+echo 'getting Super Zoom Camera Lens reviews'
+node amazon-items.js http://www.amazon.com/dp/B0013D8VDQ 17
+sleep 5
+
+echo 'getting Microwave Cookbook reviews'
+node amazon-items.js http://www.amazon.com/dp/1852250437 18
+sleep 5
+
+echo 'getting Sexy PhD Costume reviews'
+node amazon-items.js http://www.amazon.com/dp/B0053O1KHA 19
+sleep 5
+
+echo 'Ensuring reviews are unique'
+node uniquify.js
